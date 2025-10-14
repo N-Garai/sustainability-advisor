@@ -2,6 +2,8 @@
 
 An intelligent sustainability recommendation system that predicts CO2 emissions and provides personalized tips using Machine Learning, Vector Embeddings, and Agentic AI.
 
+##Demo(till now):  Sustainability Advisor Demo<https://sustainability-advisorgit-zz8ek7o6pwseqj6uutnqhy.streamlit.app/#212cfb73>
+
 ## 🚀 Features
 
 - **CO2 Emission Prediction**: Random Forest model trained on activity data
