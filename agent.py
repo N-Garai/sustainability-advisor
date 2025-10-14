@@ -35,6 +35,7 @@ class SustainabilityAgent:
         self._initialize_vector_store()
         self._initialize_agent()
 
+
     def _initialize_vector_store(self):
         """Initialize ChromaDB vector store with sustainability tips"""
         try:
