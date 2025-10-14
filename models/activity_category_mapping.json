@@ -1,0 +1,18 @@
+[
+  {
+    "Activity": "Bus(20km)",
+    "Category": "Transport"
+  },
+  {
+    "Activity": "Car(20km)",
+    "Category": "Transport"
+  },
+  {
+    "Activity": "AC usage(8hrs/day)",
+    "Category": "Household"
+  },
+  {
+    "Activity": "Bicycle(20km)",
+    "Category": "Transport"
+  }
+]

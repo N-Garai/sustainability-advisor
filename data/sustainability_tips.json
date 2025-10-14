@@ -1,0 +1,128 @@
+[
+  {
+    "category": "Transport",
+    "activity": "Car",
+    "emission_level": "High",
+    "tip": "Switch to public transportation like buses or trains to reduce your carbon footprint by up to 75%. Carpooling with colleagues can also significantly reduce emissions per person.",
+    "impact": "Can save 4.6 kg CO2 per 20km by switching to bus"
+  },
+  {
+    "category": "Transport",
+    "activity": "Car",
+    "emission_level": "High",
+    "tip": "Consider switching to an electric vehicle (EV) or hybrid car. EVs produce zero direct emissions and are becoming more affordable with government incentives.",
+    "impact": "Reduce emissions by 60-70% compared to petrol cars"
+  },
+  {
+    "category": "Transport",
+    "activity": "Car",
+    "emission_level": "High",
+    "tip": "Maintain optimal tire pressure and regular vehicle servicing. This improves fuel efficiency by 10-15% and reduces unnecessary emissions.",
+    "impact": "Save 0.5-0.7 kg CO2 per 20km journey"
+  },
+  {
+    "category": "Transport",
+    "activity": "Bus",
+    "emission_level": "Medium",
+    "tip": "You are already making an eco-friendly choice! Consider cycling or walking for shorter distances (under 5km) to further reduce emissions and improve health.",
+    "impact": "Zero emissions for short trips"
+  },
+  {
+    "category": "Transport",
+    "activity": "Bus",
+    "emission_level": "Medium",
+    "tip": "Optimize your route planning to minimize total travel distance. Combining multiple errands in one trip reduces overall emissions.",
+    "impact": "Save 20-30% emissions through efficient planning"
+  },
+  {
+    "category": "Transport",
+    "activity": "Bicycle",
+    "emission_level": "Zero",
+    "tip": "Excellent choice! Cycling produces zero emissions. Continue this habit and inspire others to cycle. Ensure regular bicycle maintenance for safety and efficiency.",
+    "impact": "Zero emissions, saves 4.6 kg CO2 per 20km vs car"
+  },
+  {
+    "category": "Transport",
+    "activity": "Bicycle",
+    "emission_level": "Zero",
+    "tip": "Join local cycling communities to promote cycling infrastructure in your area. Advocate for more bike lanes and secure parking facilities.",
+    "impact": "Community-wide emission reduction potential"
+  },
+  {
+    "category": "Household",
+    "activity": "AC usage",
+    "emission_level": "High",
+    "tip": "Set your AC temperature to 24-26\u00b0C instead of lower temperatures. Each degree higher can save 3-5% energy and reduce emissions significantly.",
+    "impact": "Save 0.3-0.5 kg CO2 per day"
+  },
+  {
+    "category": "Household",
+    "activity": "AC usage",
+    "emission_level": "High",
+    "tip": "Use ceiling fans in combination with AC. This allows you to set AC at higher temperatures while maintaining comfort, reducing energy consumption by 30-40%.",
+    "impact": "Save 1.8-2.4 kg CO2 per day"
+  },
+  {
+    "category": "Household",
+    "activity": "AC usage",
+    "emission_level": "High",
+    "tip": "Install solar panels to power your AC with renewable energy. Government subsidies can reduce installation costs by 30-40%.",
+    "impact": "Reduce emissions by up to 90% for AC usage"
+  },
+  {
+    "category": "Household",
+    "activity": "AC usage",
+    "emission_level": "High",
+    "tip": "Ensure proper insulation and seal air leaks in your home. This reduces cooling load and can cut AC energy consumption by 25-30%.",
+    "impact": "Save 1.5-1.8 kg CO2 per day"
+  },
+  {
+    "category": "Household",
+    "activity": "AC usage",
+    "emission_level": "High",
+    "tip": "Clean AC filters monthly. Dirty filters reduce efficiency by 15% and increase energy consumption significantly.",
+    "impact": "Save 0.9 kg CO2 per day"
+  },
+  {
+    "category": "General",
+    "activity": "All",
+    "emission_level": "All",
+    "tip": "Track your carbon footprint regularly using apps or journals. Awareness is the first step towards sustainable living.",
+    "impact": "Behavioral change can reduce emissions by 20-30%"
+  },
+  {
+    "category": "General",
+    "activity": "All",
+    "emission_level": "All",
+    "tip": "Participate in local environmental initiatives and tree plantation drives. Trees absorb CO2 and improve air quality.",
+    "impact": "One tree absorbs 22 kg CO2 per year"
+  },
+  {
+    "category": "General",
+    "activity": "All",
+    "emission_level": "All",
+    "tip": "Choose renewable energy providers for your home electricity. Many regions now offer green energy options at competitive prices.",
+    "impact": "Reduce household emissions by 50-70%"
+  },
+  {
+    "category": "Transport",
+    "activity": "All",
+    "emission_level": "All",
+    "tip": "Consider work-from-home options 2-3 days per week if possible. This eliminates commute emissions and improves work-life balance.",
+    "impact": "Save 40-60% of weekly commute emissions"
+  },
+  {
+    "category": "Household",
+    "activity": "Energy",
+    "emission_level": "Medium",
+    "tip": "Switch to LED bulbs throughout your home. LEDs use 75% less energy and last 25 times longer than traditional bulbs.",
+    "impact": "Save 50-80 kg CO2 per year per household"
+  },
+  {
+    "category": "Household",
+    "activity": "Energy",
+    "emission_level": "Medium",
+    "tip": "Unplug electronic devices when not in use. Phantom power consumption accounts for 5-10% of residential energy use.",
+    "impact": "Save 100-200 kg CO2 per year"
+  }
+]
