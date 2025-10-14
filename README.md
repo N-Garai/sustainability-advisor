@@ -99,9 +99,7 @@ sustainability-advisor/
 **Streamlit not loading**
 - Run: `streamlit run app.py --server.port 8502`
 
-## 📄 License
 
-Open source - MIT License
 
 ---
 Made with 💚 for a sustainable future 🌍
