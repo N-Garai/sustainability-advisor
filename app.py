@@ -214,33 +214,84 @@ def plot_emissions(df):
     
     with col1:
         activity_avg = df.groupby('Activity')['AVG CO2 emission'].mean().sort_values(ascending=False)
+        
         fig1 = px.bar(
             x=activity_avg.index,
             y=activity_avg.values,
             labels={'x': 'Activity', 'y': 'Average CO2 Emission (kg)'},
-            title='Average CO2 Emissions by Activity',
+            title='<b>Average CO2 Emissions by Activity</b>',
             color=activity_avg.values,
             color_continuous_scale='RdYlGn_r'
         )
+        
+        # FIXED: Proper text colors for chart
         fig1.update_layout(
-            font=dict(color='#212121'),
+            font=dict(
+                family="Arial, sans-serif",
+                size=14,
+                color='#212121'  # Dark text for labels
+            ),
+            title_font=dict(
+                size=18,
+                color='#1B5E20',  # Dark green for title
+                family="Arial, sans-serif"
+            ),
             paper_bgcolor='white',
-            plot_bgcolor='#F5F5F5'
+            plot_bgcolor='#FAFAFA',
+            xaxis=dict(
+                title_font=dict(size=14, color='#424242'),
+                tickfont=dict(size=12, color='#424242'),
+                gridcolor='#E0E0E0'
+            ),
+            yaxis=dict(
+                title_font=dict(size=14, color='#424242'),
+                tickfont=dict(size=12, color='#424242'),
+                gridcolor='#E0E0E0'
+            ),
+            coloraxis_colorbar=dict(
+                title="CO2 (kg)",
+                titlefont=dict(color='#424242'),
+                tickfont=dict(color='#424242')
+            )
         )
+        
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
         category_sum = df.groupby('Category')['AVG CO2 emission'].sum()
+        
         fig2 = px.pie(
             values=category_sum.values,
             names=category_sum.index,
-            title='CO2 Emissions Distribution by Category',
+            title='<b>CO2 Emissions Distribution by Category</b>',
             color_discrete_sequence=px.colors.sequential.Greens
         )
+        
+        # FIXED: Proper text colors for pie chart
         fig2.update_layout(
-            font=dict(color='#212121'),
-            paper_bgcolor='white'
+            font=dict(
+                family="Arial, sans-serif",
+                size=14,
+                color='#212121'  # Dark text for labels
+            ),
+            title_font=dict(
+                size=18,
+                color='#1B5E20',  # Dark green for title
+                family="Arial, sans-serif"
+            ),
+            paper_bgcolor='white',
+            showlegend=True,
+            legend=dict(
+                font=dict(size=12, color='#424242')
+            )
         )
+        
+        fig2.update_traces(
+            textfont=dict(size=14, color='white'),  # White text on pie slices
+            textposition='inside',
+            marker=dict(line=dict(color='white', width=2))
+        )
+        
         st.plotly_chart(fig2, use_container_width=True)
 
 
