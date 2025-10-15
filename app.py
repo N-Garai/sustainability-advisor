@@ -21,6 +21,7 @@ st.set_page_config(
 )
 
 # FIXED CSS - Proper colors for both light and dark modes
+# UPDATED CSS - Replace the entire st.markdown CSS section with this:
 st.markdown("""
 <style>
     /* Main headers - dark green, bold */
@@ -62,7 +63,7 @@ st.markdown("""
         line-height: 1.6;
     }
     
-    /* Metric cards - warm background with dark text */
+    /* Metric cards */
     .metric-card {
         background-color: #FFF3E0;
         padding: 1.5rem;
@@ -82,7 +83,7 @@ st.markdown("""
         font-size: 0.95rem;
     }
     
-    /* Buttons - green theme */
+    /* Buttons */
     .stButton>button {
         background-color: #4CAF50 !important;
         color: white !important;
@@ -103,13 +104,46 @@ st.markdown("""
         color: #212121 !important;
     }
     
-    /* Sidebar styling */
+    /* ===== SIDEBAR STYLING - FIXED ===== */
     section[data-testid="stSidebar"] {
-        background-color: #F1F8F4;
+        background-color: #E8F5E9;
     }
     
-    section[data-testid="stSidebar"] .stMarkdown {
+    /* Sidebar text - dark green */
+    section[data-testid="stSidebar"] .stMarkdown,
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] span {
         color: #1B5E20 !important;
+    }
+    
+    /* Sidebar title */
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3 {
+        color: #2E7D32 !important;
+    }
+    
+    /* Sidebar radio buttons text */
+    section[data-testid="stSidebar"] div[role="radiogroup"] label {
+        color: #1B5E20 !important;
+        font-weight: 500;
+    }
+    
+    /* Sidebar metrics */
+    section[data-testid="stSidebar"] div[data-testid="stMetricLabel"] {
+        color: #2E7D32 !important;
+        font-weight: 600;
+    }
+    
+    section[data-testid="stSidebar"] div[data-testid="stMetricValue"] {
+        color: #1B5E20 !important;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    
+    section[data-testid="stSidebar"] div[data-testid="stMetricDelta"] {
+        color: #4CAF50 !important;
     }
     
     /* Expander styling */
@@ -124,7 +158,7 @@ st.markdown("""
         color: #212121 !important;
     }
     
-    /* Metrics */
+    /* Main content metrics */
     div[data-testid="stMetricValue"] {
         color: #1B5E20 !important;
         font-size: 1.5rem;
@@ -136,7 +170,7 @@ st.markdown("""
         font-weight: 500;
     }
     
-    /* For dark mode support */
+    /* Dark mode support */
     @media (prefers-color-scheme: dark) {
         .main-header {
             color: #81C784 !important;
@@ -175,10 +209,20 @@ st.markdown("""
         .metric-card p {
             color: #FFCCBC !important;
         }
+        
+        section[data-testid="stSidebar"] {
+            background-color: #1B5E20;
+        }
+        
+        section[data-testid="stSidebar"] .stMarkdown,
+        section[data-testid="stSidebar"] p,
+        section[data-testid="stSidebar"] label,
+        section[data-testid="stSidebar"] span {
+            color: #C8E6C9 !important;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
-
 
 # Initialize session state
 if 'agent' not in st.session_state:
