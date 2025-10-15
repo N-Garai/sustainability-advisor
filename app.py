@@ -252,7 +252,7 @@ def initialize_agent():
 
 
 def plot_emissions(df):
-    """Create visualizations for emissions data"""
+    """Create visualizations for emissions data with HIGH CONTRAST"""
     
     col1, col2 = st.columns(2)
     
@@ -263,40 +263,53 @@ def plot_emissions(df):
             x=activity_avg.index,
             y=activity_avg.values,
             labels={'x': 'Activity', 'y': 'Average CO2 Emission (kg)'},
-            title='<b>Average CO2 Emissions by Activity</b>',
+            title='Average CO2 Emissions by Activity',
             color=activity_avg.values,
             color_continuous_scale='RdYlGn_r'
         )
         
-        # FIXED: Proper text colors for chart
+        # FIXED: Dark, bold text for ALL chart elements
         fig1.update_layout(
+            title={
+                'text': '<b>Average CO2 Emissions by Activity</b>',
+                'font': {'size': 20, 'color': '#1B5E20', 'family': 'Arial, sans-serif'},
+                'x': 0.5,
+                'xanchor': 'center'
+            },
             font=dict(
                 family="Arial, sans-serif",
                 size=14,
-                color='#212121'  # Dark text for labels
-            ),
-            title_font=dict(
-                size=18,
-                color='#1B5E20',  # Dark green for title
-                family="Arial, sans-serif"
+                color='#212121'  # Dark text
             ),
             paper_bgcolor='white',
             plot_bgcolor='#FAFAFA',
             xaxis=dict(
-                title_font=dict(size=14, color='#424242'),
-                tickfont=dict(size=12, color='#424242'),
-                gridcolor='#E0E0E0'
+                title={
+                    'text': '<b>Activity</b>',
+                    'font': {'size': 16, 'color': '#212121'}
+                },
+                tickfont={'size': 13, 'color': '#212121'},
+                gridcolor='#E0E0E0',
+                showgrid=True
             ),
             yaxis=dict(
-                title_font=dict(size=14, color='#424242'),
-                tickfont=dict(size=12, color='#424242'),
-                gridcolor='#E0E0E0'
+                title={
+                    'text': '<b>Emission (kg CO2)</b>',
+                    'font': {'size': 16, 'color': '#212121'}
+                },
+                tickfont={'size': 13, 'color': '#212121'},
+                gridcolor='#E0E0E0',
+                showgrid=True
             ),
             coloraxis_colorbar=dict(
-                title="CO2 (kg)",
-                titlefont=dict(color='#424242'),
-                tickfont=dict(color='#424242')
-            )
+                title={
+                    'text': '<b>CO2 (kg)</b>',
+                    'font': {'color': '#212121'}
+                },
+                tickfont={'color': '#212121'},
+                bgcolor='white'
+            ),
+            margin=dict(l=80, r=80, t=80, b=80)
         )
         
         st.plotly_chart(fig1, use_container_width=True)
@@ -307,33 +320,42 @@ def plot_emissions(df):
         fig2 = px.pie(
             values=category_sum.values,
             names=category_sum.index,
-            title='<b>CO2 Emissions Distribution by Category</b>',
-            color_discrete_sequence=px.colors.sequential.Greens
+            title='CO2 Emissions Distribution by Category',
+            color_discrete_sequence=['#66BB6A', '#FFA726']  # Green and Orange for contrast
         )
         
-        # FIXED: Proper text colors for pie chart
+        # FIXED: Dark, bold text for pie chart
         fig2.update_layout(
+            title={
+                'text': '<b>CO2 Emissions Distribution by Category</b>',
+                'font': {'size': 20, 'color': '#1B5E20', 'family': 'Arial, sans-serif'},
+                'x': 0.5,
+                'xanchor': 'center'
+            },
             font=dict(
                 family="Arial, sans-serif",
                 size=14,
-                color='#212121'  # Dark text for labels
-            ),
-            title_font=dict(
-                size=18,
-                color='#1B5E20',  # Dark green for title
-                family="Arial, sans-serif"
+                color='#212121'
             ),
             paper_bgcolor='white',
             showlegend=True,
             legend=dict(
-                font=dict(size=12, color='#424242')
-            )
+                font={'size': 13, 'color': '#212121'},
+                bgcolor='white',
+                bordercolor='#E0E0E0',
+                borderwidth=1
+            ),
+            margin=dict(l=40, r=40, t=80, b=40)
         )
         
+        # Make text on pie slices white and bold
         fig2.update_traces(
-            textfont=dict(size=14, color='white'),  # White text on pie slices
+            textfont={'size': 15, 'color': 'white', 'family': 'Arial, sans-serif'},
             textposition='inside',
-            marker=dict(line=dict(color='white', width=2))
+            texttemplate='%{label}<br>%{value:.1f} kg<br>(%{percent})',
+            marker=dict(
+                line=dict(color='white', width=3)
+            )
         )
         
         st.plotly_chart(fig2, use_container_width=True)
@@ -354,20 +376,40 @@ def main():
                 st.session_state.initialized = True
                 st.success("✅ Agent initialized successfully!")
     
-    # Sidebar
+        # Sidebar with FIXED visibility
     with st.sidebar:
         st.image("https://img.icons8.com/color/96/000000/tree-planting.png", width=100)
-        st.title("Navigation")
-        
-        page = st.radio(
-            "Choose a feature:",
-            ["🏠 Home", "🔍 Single Activity Analysis", "📊 Dataset Analysis", "💡 Sustainability Tips", "ℹ️ About"]
-        )
-        
-        st.markdown("---")
-        st.markdown("### Quick Stats")
-        st.metric("CO2 Saved Today", "24.5 kg", "+5.2 kg")
-        st.metric("Trees Equivalent", "1.1", "+0.2")
+    
+    # Title with dark text
+        st.markdown('<h1 style="color: #1B5E20;">Navigation</h1>', unsafe_allow_html=True)
+    
+    page = st.radio(
+        "Choose a feature:",
+        ["🏠 Home", "🔍 Single Activity Analysis", "📊 Dataset Analysis", "💡 Sustainability Tips", "ℹ️ About"]
+    )
+    
+    st.markdown("---")
+    
+    # FIXED: Quick Stats with visible text
+    st.markdown('<h3 style="color: #1B5E20;">Quick Stats</h3>', unsafe_allow_html=True)
+    
+    # Create custom metric cards with high contrast
+    st.markdown("""
+    <div style="background-color: #FFFFFF; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 2px solid #4CAF50;">
+        <p style="color: #616161; font-size: 0.9rem; margin: 0;">CO2 Saved Today</p>
+        <p style="color: #1B5E20; font-size: 1.8rem; font-weight: bold; margin: 0.2rem 0;">24.5 kg</p>
+        <p style="color: #4CAF50; font-size: 0.9rem; margin: 0;">↑ +5.2 kg</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style="background-color: #FFFFFF; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border: 2px solid #4CAF50;">
+        <p style="color: #616161; font-size: 0.9rem; margin: 0;">Trees Equivalent</p>
+        <p style="color: #1B5E20; font-size: 1.8rem; font-weight: bold; margin: 0.2rem 0;">1.1</p>
+        <p style="color: #4CAF50; font-size: 0.9rem; margin: 0;">↑ +0.2</p>
+    </div>
+    """, unsafe_allow_html=True)
+
     
     
     # Main content based on page selection
@@ -499,14 +541,58 @@ def show_single_analysis():
             }
             df_comp = pd.DataFrame(comparison_data)
             
-            fig = px.bar(df_comp, x="Activity", y="Emission", color="Type",
-                        title="Your Activity vs. Common Activities",
-                        color_discrete_map={"Reference": "#81C784", "Your Activity": "#FF6B6B"})
-            fig.update_layout(
-                font=dict(color='#212121'),
-                paper_bgcolor='white',
-                plot_bgcolor='#F5F5F5'
+            fig = px.bar(
+                df_comp, 
+                x="Activity", 
+                y="Emission", 
+                color="Type",
+                title="Your Activity vs. Common Activities",
+                color_discrete_map={"Reference": "#81C784", "Your Activity": "#FF6B6B"}
             )
+            
+            # FIXED: High contrast labels for all chart elements
+            fig.update_layout(
+                title={
+                    'text': '<b>Your Activity vs. Common Activities</b>',
+                    'font': {'size': 20, 'color': '#1B5E20', 'family': 'Arial, sans-serif'},
+                    'x': 0.5,
+                    'xanchor': 'center'
+                },
+                font={
+                    'family': 'Arial, sans-serif', 
+                    'size': 14, 
+                    'color': '#212121'
+                },
+                paper_bgcolor='white',
+                plot_bgcolor='#FAFAFA',
+                xaxis=dict(
+                    title={
+                        'text': '<b>Activity</b>', 
+                        'font': {'size': 16, 'color': '#212121'}
+                    },
+                    tickfont={'size': 13, 'color': '#212121'},
+                    gridcolor='#E0E0E0',
+                    showgrid=True
+                ),
+                yaxis=dict(
+                    title={
+                        'text': '<b>Emission (kg CO2)</b>', 
+                        'font': {'size': 16, 'color': '#212121'}
+                    },
+                    tickfont={'size': 13, 'color': '#212121'},
+                    gridcolor='#E0E0E0',
+                    showgrid=True
+                ),
+                legend=dict(
+                    title={'text': '<b>Type</b>', 'font': {'size': 14, 'color': '#212121'}},
+                    font={'size': 13, 'color': '#212121'},
+                    bgcolor='white',
+                    bordercolor='#E0E0E0',
+                    borderwidth=1
+                ),
+                margin=dict(l=80, r=80, t=80, b=80)
+            )
+            
             st.plotly_chart(fig, use_container_width=True)
 
 
